@@ -92,6 +92,7 @@
     <None Include="PaddleMask.bmp">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="bitmap1.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

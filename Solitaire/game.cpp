@@ -84,12 +84,13 @@ CGame::GameOverLost()
 MessageBox(m_hMainWindow, L"Loser!", L"Game Over", MB_OK);
 PostQuitMessage(0);
 }
-void
-CGame::DestroyInstance()
+
+void CGame::DestroyInstance()
 {
-delete s_pGame;
-s_pGame = 0;
+	delete s_pGame;
+	s_pGame = 0;
 }
+
 CBackBuffer*
 CGame::GetBackBuffer()
 {

@@ -6,26 +6,30 @@
 #include "Paddle.h"
 // Static Variables
 // Static Function Prototypes
+
 // Implementation
 CPaddle::CPaddle()
 {
+
 }
+
 CPaddle::~CPaddle()
 {
+
 }
-bool
-CPaddle::Initialise()
+
+bool CPaddle::Initialise()
 {
-VALIDATE(CEntity::Initialise(IDB_PADDLESPRITE, IDB_PADDLEMASK));
-return (true);
+	VALIDATE(CEntity::Initialise(IDB_PADDLESPRITE, IDB_PADDLEMASK));
+	return (true);
 }
-void
-CPaddle::Draw()
+
+void CPaddle::Draw()
 {
-CEntity::Draw();
+	CEntity::Draw();
 }
-void
-CPaddle::Process(float _fDeltaTick)
+
+void CPaddle::Process(float _fDeltaTick)
 {
 	CEntity::Process(_fDeltaTick);
 }

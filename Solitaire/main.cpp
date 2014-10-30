@@ -24,8 +24,12 @@ WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
 
 	testCard.SetSuit(clubs);
 	testCard.GetSuit();
+	testCard.SetValue(5);
 	testCard.FlipCard();
 	testCard.FlipCard();
+	testCard.setCardPos();
+	
+
 	vector<CCards> deck,revealpile,heartpile,diamondpile,spadepile,clubpile;
 	vector<vector<CCards>> playingspace[7];
 	int cardDraw = 1;
