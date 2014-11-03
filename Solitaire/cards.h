@@ -10,11 +10,11 @@
 #include "BackBuffer.h"
 #include "Sprite.h"
 #include "cards.h"
-
+#include "Game.h"
 
 using namespace std;
 //#include "resource.h"
-//#include "Game.h"
+
 //#include "BackBuffer.h"
 //#include "utils.h"
 //// This include
@@ -47,7 +47,7 @@ public:
 	int GetSuit();
 	void FlipCard();
 	void setCardPos();
-	void drawCard(HDC hdcDest);
+	void drawCard(HWND _hWND);
 
 private:
 	//CCards(const CCards& _kr);

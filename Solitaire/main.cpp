@@ -20,47 +20,39 @@ using namespace std;
 LRESULT CALLBACK
 WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
 {
-	CCards testCard;
+	HDC _hdc;
 
-	testCard.SetSuit(clubs);
-	testCard.GetSuit();
-	testCard.SetValue(5);
-	testCard.FlipCard();
-	testCard.FlipCard();
-	testCard.setCardPos();
-	
+	//vector<CCards> deck,revealpile,heartpile,diamondpile,spadepile,clubpile;
+	//vector<vector<CCards>> playingspace[7];
+	//int cardDraw = 1;
 
-	vector<CCards> deck,revealpile,heartpile,diamondpile,spadepile,clubpile;
-	vector<vector<CCards>> playingspace[7];
-	int cardDraw = 1;
+	//for (int i = 0; i < 4; i++)
+	//{
+	//	for (int j = 1; j <= 13; j++)
+	//	{
+	//		
+	//		CCards* tempCard = new CCards;
+	//		tempCard->SetSuit((m_eCardSuits)i);
+	//		tempCard->SetValue(j);
+	//		deck.push_back(*tempCard);
+	//	}
+	//}
 
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 1; j <= 13; j++)
-		{
-			
-			CCards* tempCard = new CCards;
-			tempCard->SetSuit((m_eCardSuits)i);
-			tempCard->SetValue(j);
-			deck.push_back(*tempCard);
-		}
-	}
+	////SHUFFLE
+	//random_shuffle(deck.begin(),deck.end());
 
-	//SHUFFLE
-	random_shuffle(deck.begin(),deck.end());
-
-	for (int i = 0; i< 7; i++)
-	{
-		vector<CCards> temp;
-		playingspace[i];
-		for (int j = 0; j<1+i;j++)
-		{
-			temp.push_back(deck.back());
-			deck.pop_back();
-		}
-		playingspace[i].push_back(temp);
-		playingspace[i].back().back().FlipCard();
-	}
+	//for (int i = 0; i< 7; i++)
+	//{
+	//	vector<CCards> temp;
+	//	playingspace[i];
+	//	for (int j = 0; j<1+i;j++)
+	//	{
+	//		temp.push_back(deck.back());
+	//		deck.pop_back();
+	//	}
+	//	playingspace[i].push_back(temp);
+	//	playingspace[i].back().back().FlipCard();
+	//}
 
 	switch (_uiMsg)
 	{
@@ -74,7 +66,7 @@ WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
 
 		case WM_LBUTTONDOWN:
 		{
-			if (!deck.empty())
+			/*if (!deck.empty())
 			{
 				for(int i = 0; i<cardDraw; i++)
 				{
@@ -92,7 +84,7 @@ WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
 					deck.back().FlipCard();
 					revealpile.pop_back();
 				}
-			}
+			}*/
 		}
 			break;
 
@@ -169,6 +161,8 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
 		// Failed
 		return (0);
 	}
+
+		
 
 	while (msg.message != WM_QUIT)
 	{

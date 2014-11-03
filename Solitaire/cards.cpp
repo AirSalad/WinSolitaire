@@ -70,23 +70,34 @@ void CCards::setCardPos()
 	m_height = 100;
 }
 
-void CCards::drawCard(HDC hdcDest)
+void CCards::drawCard(HWND _hWND)
 {
-	HDC	hdcSrc = CreateCompatibleDC(NULL);
+	/////////////////
+	/////////////
+	HINSTANCE hInstance = CGame::GetInstance().GetAppInstance();
+	HDC _hdc = GetDC(_hWND);
+	
+	HDC	hdcDest = CreateCompatibleDC(_hdc);
 
-	HBITMAP hbmOld, hbmNew;
-	BITMAP bm;
+	HDC	hdcSrc = CreateCompatibleDC(_hdc);
 
-	//HBITMAP m_hSprite;
-	//HBITMAP m_hMask;
-	//BITMAP m_bitmapSprite;
-	//BITMAP m_bitmapMask;
+	HBITMAP hbmOld,hbmNew;
+	//BITMAP bm;
+
+	hbmNew = LoadBitmap(hInstance, MAKEINTRESOURCE(IDB_BITMAP2));
+
+	hbmOld = CreateCompatibleBitmap(_hdc, 936, 500);
+
+	
+
+	//HBITMAP m_hOldObject = static_cast<HBITMAP>(SelectObject(hbmOld, hdcNew));
+
+	SelectObject(hdcSrc, hbmNew);
+
 
 	//HINSTANCE hInstance = CGame::GetInstance().GetAppInstance();
 
-	//hbmOld = LoadBitmap(hInstance, MAKEINTRESOURCE(IDB_BITMAP1));
-	hbmNew = CreateBitmap( bm.bmWidth, bm.bmHeight, bm.bmPlanes, bm.bmBitsPixel,
-            NULL);
+	//hbmNew = CreateBitmap( bm.bmWidth, bm.bmHeight, bm.bmPlanes, bm.bmBitsPixel, NULL);
 
 	//SelectObject(hdcSrc, hbmOld);
 
@@ -98,28 +109,20 @@ void CCards::drawCard(HDC hdcDest)
 
 	AlphaBlend(
 		//Destination
-		hdcSrc,
-		0,
-		0,
-		936,
-		500,
-		//Source
 		hdcDest,
+		0,
+		0,
+		72,
+		100,
+		//Source
+		hdcSrc,
 		m_x,
 		m_y,
 		m_width,
 		m_height,
 		BlendFunction
 	);
-		//HDC hdcDest,
-		//int xoriginDest,
-		//int yoriginDest,
-		//int wDest,
-		//int hDest,
-		//HDC hdcSrc,
-		//int xoriginSrc,
-		//int yoriginSrc,
-		//int wSrc,
-		//int hSrc,
-		//BLENDFUNCTION ftn
+
+	ReleaseDC(_hWND, _hdc);
+
 }

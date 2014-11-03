@@ -92,7 +92,9 @@
     <None Include="PaddleMask.bmp">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="bitmap1.bmp" />
+    <None Include="bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -109,5 +111,10 @@
     <ResourceCompile Include="resource.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="DeckSprites.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

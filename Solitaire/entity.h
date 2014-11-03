@@ -7,6 +7,7 @@
 // Constants
 // Prototypes
 class CSprite;
+
 class CEntity
 {
 // Member Functions

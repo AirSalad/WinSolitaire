@@ -4,6 +4,7 @@
 #include "Level.h"
 #include "BackBuffer.h"
 #include "utils.h"
+#include "cards.h"
 // This Include
 #include "Game.h"
 // Static Variables
@@ -36,15 +37,25 @@ bool CGame::Initialise(HINSTANCE _hInstance, HWND _hWnd, int _iWidth, int _iHeig
 	VALIDATE(m_pBackBuffer->Initialise(_hWnd, _iWidth, _iHeight));
 	m_pLevel = new CLevel();
 	VALIDATE(m_pLevel->Initialise(_iWidth, _iHeight));
-	ShowCursor(false);
+	m_pCard = new CCards();
+	//VALIDATE(m_pLevel->Initialise(_iWidth, _iHeight));
+	//ShowCursor(false);
+	m_pCard->SetSuit(clubs);
+	//m_pCard->GetSuit();
+	m_pCard->SetValue(5);
+	/*testCard.FlipCard();
+	testCard.FlipCard();
+	testCard.setCardPos();*/
 	return (true);
 }
 
 void CGame::Draw()
 {
-	m_pBackBuffer->Clear();
-	m_pLevel->Draw();
-	m_pBackBuffer->Present();
+	//m_pBackBuffer->Clear();
+	//m_pLevel->Draw();
+	//m_pBackBuffer->Present();
+	m_pCard->drawCard(m_hMainWindow);
+
 }
 
 void

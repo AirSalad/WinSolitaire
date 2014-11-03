@@ -116,6 +116,9 @@
     <None Include="PaddleMask.bmp" />
     <None Include="PaddleSprite.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="DeckSprites.bmp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

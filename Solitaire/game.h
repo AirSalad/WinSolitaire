@@ -10,6 +10,8 @@
 // Prototypes
 class CLevel;
 class CBackBuffer;
+class CCards;
+
 class CGame
 {
 // Member Functions
@@ -39,6 +41,7 @@ protected:
 	CClock* m_pClock;
 	CLevel* m_pLevel;
 	CBackBuffer* m_pBackBuffer;
+	CCards* m_pCard;
 	//Application data
 	HINSTANCE m_hApplicationInstance;
 	HWND m_hMainWindow;
