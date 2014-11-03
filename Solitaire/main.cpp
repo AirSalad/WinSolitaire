@@ -20,7 +20,7 @@ using namespace std;
 LRESULT CALLBACK
 WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
 {
-	HDC _hdc;
+	//HDC _hdc;
 
 	//vector<CCards> deck,revealpile,heartpile,diamondpile,spadepile,clubpile;
 	//vector<vector<CCards>> playingspace[7];
@@ -114,7 +114,7 @@ CreateAndRegisterWindow(HINSTANCE _hInstance, int _iWidth, int _iHeight, LPCWSTR
 	winclass.hInstance = _hInstance;
 	winclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 	winclass.hCursor = LoadCursor(NULL, IDC_ARROW);
-	winclass.hbrBackground = static_cast<HBRUSH> (GetStockObject(NULL_BRUSH));
+	winclass.hbrBackground = CreateSolidBrush(RGB(0,128,0)); //static_cast<HBRUSH> (GetStockObject(NULL_BRUSH));
 	winclass.lpszMenuName = NULL;
 	winclass.lpszClassName = WINDOW_CLASS_NAME;
 	winclass.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
@@ -151,10 +151,10 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
 	MSG msg;
 	ZeroMemory(&msg, sizeof(MSG));
 
-	const int kiWidth = 400;
-	const int kiHeight = 400;
+	const int kiWidth = 600;
+	const int kiHeight = 480;
 
-	HWND hwnd = CreateAndRegisterWindow(_hInstance, kiWidth, kiHeight, L"Bricks Buster");
+	HWND hwnd = CreateAndRegisterWindow(_hInstance, kiWidth, kiHeight, L"Solitaire");
 										CGame& rGame = CGame::GetInstance();
 	if (!rGame.Initialise(_hInstance, hwnd, kiWidth, kiHeight))
 	{

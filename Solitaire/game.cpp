@@ -40,13 +40,45 @@ bool CGame::Initialise(HINSTANCE _hInstance, HWND _hWnd, int _iWidth, int _iHeig
 	m_pCard = new CCards();
 	//VALIDATE(m_pLevel->Initialise(_iWidth, _iHeight));
 	//ShowCursor(false);
-	m_pCard->SetSuit(clubs);
+	//m_pCard->SetSuit(clubs);
 	//m_pCard->GetSuit();
-	m_pCard->SetValue(5);
+	//m_pCard->SetValue(5);
 	/*testCard.FlipCard();
 	testCard.FlipCard();
 	testCard.setCardPos();*/
-	return (true);
+
+	//Do the shufflign and dealing for the cards
+
+	
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 1; j <= 13; j++)
+		{
+			
+			CCards* tempCard = new CCards;
+			tempCard->SetSuit((m_eCardSuits)i);
+			tempCard->SetValue(j);
+			deck.push_back(*tempCard);
+		}
+	}
+
+	//SHUFFLE
+	random_shuffle(deck.begin(),deck.end());
+
+	for (int i = 0; i< 7; i++)
+	{
+		vector<CCards> temp;
+		playingspace[i];
+		for (int j = 0; j<1+i;j++)
+		{
+			temp.push_back(deck.back());
+			deck.pop_back();
+		}
+		playingspace[i].push_back(temp);
+		playingspace[i].back().back().FlipCard();
+	}
+	//return (true);
 }
 
 void CGame::Draw()
@@ -54,7 +86,43 @@ void CGame::Draw()
 	//m_pBackBuffer->Clear();
 	//m_pLevel->Draw();
 	//m_pBackBuffer->Present();
-	m_pCard->drawCard(m_hMainWindow);
+	
+
+	//Draw cards
+	//Draw deck pile
+	if(deck.capacity()>0)
+	{
+		m_pCard->drawCard(m_hMainWindow, false, 0,0,10,10);
+	}
+	else
+	{
+		//if(!vegasdrawsremaining)
+		//m_pCard->drawCard(m_hMainWindow, false, 1,4,10,10);
+		m_pCard->drawCard(m_hMainWindow, false, 2,4,10,10);
+	}
+
+	if(!heartpile.empty())
+	{
+		//m_pCard->drawCard(m_hMainWindow, false, 0,0,10,10);
+	}
+	else
+	{
+		m_pCard->drawCard(m_hMainWindow, false, 0,0,10,10);
+	}
+
+	for (int i = 0; i< 7; i++)
+	{
+		//vector<CCards> temp;
+		//playingspace[i];
+		for (int j = 0; j<1+i;j++)
+		{
+		//	temp.push_back(deck.back());
+		//	deck.pop_back();
+		}
+		//playingspace[i].push_back(temp);
+		//playingspace[i].back().back().FlipCard();
+	}
+	//m_pCard->drawCard(m_hMainWindow);
 
 }
 

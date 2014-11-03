@@ -47,7 +47,7 @@ public:
 	int GetSuit();
 	void FlipCard();
 	void setCardPos();
-	void drawCard(HWND _hWND);
+	void drawCard(HWND _hWND, bool bCardFaceUp, int iCardValue, int iCardType,  int x, int y);
 
 private:
 	//CCards(const CCards& _kr);

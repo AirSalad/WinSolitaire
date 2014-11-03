@@ -3,8 +3,13 @@
 #define __GAME_H__
 // Library Includes
 #include <windows.h>
+#include <algorithm>
+#include <vector>
 // Local Includes
 #include "clock.h"
+
+using namespace std;
+
 // Types
 // Constants
 // Prototypes
@@ -48,5 +53,13 @@ protected:
 	// Singleton Instance
 	static CGame* s_pGame;
 private:
+	vector<CCards> deck;
+	vector<CCards> revealpile;
+	vector<CCards> heartpile;
+	vector<CCards> diamondpile;
+	vector<CCards> spadepile;
+	vector<CCards> clubpile;
+	vector<vector<CCards>> playingspace[7];
+	int cardDraw;
 };
 #endif // __GAME_H__

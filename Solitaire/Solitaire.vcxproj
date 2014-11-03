@@ -83,6 +83,7 @@
     <ClCompile Include="brick.cpp" />
     <ClCompile Include="cards.cpp" />
     <ClCompile Include="clock.cpp" />
+    <ClCompile Include="Deck.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="level.cpp" />
@@ -96,6 +97,7 @@
     <ClInclude Include="brick.h" />
     <ClInclude Include="cards.h" />
     <ClInclude Include="clock.h" />
+    <ClInclude Include="Deck.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="level.h" />
