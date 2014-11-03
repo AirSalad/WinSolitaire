@@ -12,15 +12,15 @@ class CPaddle : public CEntity
 {
 // Member Functions
 public:
-CPaddle();
-virtual ~CPaddle();
-virtual bool Initialise();
-virtual void Draw();
-virtual void Process(float _fDeltaTick);
+	CPaddle();
+	virtual ~CPaddle();
+	virtual bool Initialise();
+	virtual void Draw();
+	virtual void Process(float _fDeltaTick);
 protected:
 private:
-CPaddle(const CPaddle& _kr);
-CPaddle& operator= (const CPaddle& _kr);
+	CPaddle(const CPaddle& _kr);
+	CPaddle& operator= (const CPaddle& _kr);
 // Member Variables
 public:
 protected:

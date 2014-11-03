@@ -9,8 +9,8 @@
 // Prototypes
 class CBrick : public CEntity
 {
-	// Member Functions
-	public:
+// Member Functions
+public:
 	CBrick();
 	virtual ~CBrick();
 	virtual bool Initialise();
@@ -18,18 +18,14 @@ class CBrick : public CEntity
 	virtual void Process(float _fDeltaTick);
 	void SetHit(bool _b);
 	bool IsHit() const;
-
-	protected:
-
-	private:
+protected:
+private:
 	CBrick(const CBrick& _kr);
 	CBrick& operator= (const CBrick& _kr);
-	// Member Variables
-	public:
-
-	protected:
+// Member Variables
+public:
+protected:
 	bool m_bHit;
-
-	private:
+private:
 };
 #endif // __BRICK_H__

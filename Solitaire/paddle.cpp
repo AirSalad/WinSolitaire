@@ -6,16 +6,13 @@
 #include "Paddle.h"
 // Static Variables
 // Static Function Prototypes
-
 // Implementation
 CPaddle::CPaddle()
 {
-
 }
 
 CPaddle::~CPaddle()
 {
-
 }
 
 bool CPaddle::Initialise()

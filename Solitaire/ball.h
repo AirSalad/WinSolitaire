@@ -10,8 +10,8 @@
 class CSprite;
 class CBall : public CEntity
 {
-	// Member Functions
-	public:
+// Member Functions
+public:
 	CBall();
 	virtual ~CBall();
 	virtual bool Initialise(float _fPosX, float _fPosY, float _fVelocityX, float _fVelocityY);
@@ -22,20 +22,15 @@ class CBall : public CEntity
 	void SetVelocityX(float _fX);
 	void SetVelocityY(float _fY);
 	float GetRadius() const;
-
-	protected:
-
-	private:
+protected:
+private:
 	CBall(const CBall& _kr);
 	CBall& operator= (const CBall& _kr);
-	// Member Variables
-	public:
-
-	protected:
+// Member Variables
+public:
+protected:
 	float m_fVelocityX;
 	float m_fVelocityY;
-
-	private:
+private:
 };
-
 #endif // __BALL_H__

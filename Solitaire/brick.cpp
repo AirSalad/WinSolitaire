@@ -7,42 +7,44 @@
 // Static Variables
 // Static Function Prototypes
 // Implementation
-CBrick::CBrick()
-: m_bHit(false)
+CBrick::CBrick(): m_bHit(false)
 {
+
 }
+
 CBrick::~CBrick()
 {
+
 }
-bool
-CBrick::Initialise()
+
+bool CBrick::Initialise()
 {
-VALIDATE(CEntity::Initialise(IDB_BRICKSPRITE, IDB_BRICKMASK));
-return (true);
+	VALIDATE(CEntity::Initialise(IDB_BRICKSPRITE, IDB_BRICKMASK));
+	return (true);
 }
-void
-CBrick::Draw()
+
+void CBrick::Draw()
 {
-if (!m_bHit)
-{
-CEntity::Draw();
+	if (!m_bHit)
+	{
+		CEntity::Draw();
+	}
 }
-}
-void
-CBrick::Process(float _fDeltaTick)
+
+void CBrick::Process(float _fDeltaTick)
 {
-if (!m_bHit)
-{
-CEntity::Process(_fDeltaTick);
+	if (!m_bHit)
+	{
+		CEntity::Process(_fDeltaTick);
+	}
 }
-}
-void
-CBrick::SetHit(bool _b)
+
+void CBrick::SetHit(bool _b)
 {
-m_bHit = _b;
+	m_bHit = _b;
 }
-bool
-CBrick::IsHit() const
+
+bool CBrick::IsHit() const
 {
-return (m_bHit);
+	return (m_bHit);
 }

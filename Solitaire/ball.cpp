@@ -7,7 +7,7 @@
 // Static Variables
 // Static Function Prototypes
 // Implementation
-CBall::CBall(): m_fVelocityX(0.0f) , m_fVelocityY(0.0f)
+CBall::CBall(): m_fVelocityX(0.0f), m_fVelocityY(0.0f)
 {
 
 }
