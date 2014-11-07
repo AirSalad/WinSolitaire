@@ -151,7 +151,7 @@ WinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPSTR _lpCmdline, int _i
 	MSG msg;
 	ZeroMemory(&msg, sizeof(MSG));
 
-	const int kiWidth = 600;
+	const int kiWidth = 594;
 	const int kiHeight = 480;
 
 	HWND hwnd = CreateAndRegisterWindow(_hInstance, kiWidth, kiHeight, L"Solitaire");

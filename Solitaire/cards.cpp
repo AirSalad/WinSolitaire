@@ -12,7 +12,7 @@ using namespace std;
 
 CCards::CCards()
 {
-	//m_bFaceUp = 0;
+	m_bFaceUp = 0;
 	//m_eChosenSuit = hearts;
 }
 
@@ -62,12 +62,17 @@ void CCards::FlipCard()
 	m_bFaceUp = !m_bFaceUp;
 }
 
+bool CCards::IsFaceUp()
+{
+	return m_bFaceUp;
+}
+
 void CCards::setCardPos()
 {
-	m_x = (m_iCardValue-1)*72;
-	m_y = m_eChosenSuit*100;
-	m_width = 72;
-	m_height = 100;
+	//m_x = (m_iCardValue-1)*72;
+	//m_y = m_eChosenSuit*100;
+	//m_width = 72;
+	//m_height = 100;
 }
 
 void CCards::drawCard(HWND _hWND, bool bCardFaceUp,  int iCardValue, int iCardType,  int xCard, int yCard)
@@ -96,7 +101,7 @@ void CCards::drawCard(HWND _hWND, bool bCardFaceUp,  int iCardValue, int iCardTy
 	//DRAW//
 	if(!bCardFaceUp)
 	{
-		BitBlt(_hdc, xCard, yCard, 72, 100, hdcSrc, 576, 400, SRCCOPY);
+		BitBlt(_hdc, xCard, yCard, 72, 100, hdcSrc, 504, 400, SRCCOPY);
 	}
 	else
 	{

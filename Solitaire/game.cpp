@@ -35,8 +35,8 @@ bool CGame::Initialise(HINSTANCE _hInstance, HWND _hWnd, int _iWidth, int _iHeig
 	m_pClock->Process();
 	m_pBackBuffer = new CBackBuffer();
 	VALIDATE(m_pBackBuffer->Initialise(_hWnd, _iWidth, _iHeight));
-	m_pLevel = new CLevel();
-	VALIDATE(m_pLevel->Initialise(_iWidth, _iHeight));
+	//m_pLevel = new CLevel();
+	//VALIDATE(m_pLevel->Initialise(_iWidth, _iHeight));
 	m_pCard = new CCards();
 	//VALIDATE(m_pLevel->Initialise(_iWidth, _iHeight));
 	//ShowCursor(false);
@@ -69,14 +69,14 @@ bool CGame::Initialise(HINSTANCE _hInstance, HWND _hWnd, int _iWidth, int _iHeig
 	for (int i = 0; i< 7; i++)
 	{
 		vector<CCards> temp;
-		playingspace[i];
+		//playingspace;
 		for (int j = 0; j<1+i;j++)
 		{
 			temp.push_back(deck.back());
 			deck.pop_back();
 		}
-		playingspace[i].push_back(temp);
-		playingspace[i].back().back().FlipCard();
+		playingspace.push_back(temp);
+		playingspace.back().back().FlipCard();
 	}
 	//return (true);
 }
@@ -90,39 +90,66 @@ void CGame::Draw()
 
 	//Draw cards
 	//Draw deck pile
-	if(deck.capacity()>0)
+	if(deck.size()>0)
 	{
 		m_pCard->drawCard(m_hMainWindow, false, 0,0,10,10);
+		//m_pCard->drawCard(m_hMainWindow, false, 2,4,10,10);
 	}
 	else
 	{
 		//if(!vegasdrawsremaining)
 		//m_pCard->drawCard(m_hMainWindow, false, 1,4,10,10);
-		m_pCard->drawCard(m_hMainWindow, false, 2,4,10,10);
+		m_pCard->drawCard(m_hMainWindow, true, 2,4,10,10);
 	}
-
+	
 	if(!heartpile.empty())
 	{
 		//m_pCard->drawCard(m_hMainWindow, false, 0,0,10,10);
 	}
 	else
 	{
-		m_pCard->drawCard(m_hMainWindow, false, 0,0,10,10);
+		m_pCard->drawCard(m_hMainWindow, true, 9,4, 256, 10);
 	}
 
-	for (int i = 0; i< 7; i++)
+	if(!diamondpile.empty())
 	{
-		//vector<CCards> temp;
-		//playingspace[i];
-		for (int j = 0; j<1+i;j++)
-		{
-		//	temp.push_back(deck.back());
-		//	deck.pop_back();
-		}
-		//playingspace[i].push_back(temp);
-		//playingspace[i].back().back().FlipCard();
+		//m_pCard->drawCard(m_hMainWindow, false, 0,0,10,10);
 	}
-	//m_pCard->drawCard(m_hMainWindow);
+	else
+	{
+		m_pCard->drawCard(m_hMainWindow, true, 10,4, 338, 10);
+	}
+
+	if(!clubpile.empty())
+	{
+		//m_pCard->drawCard(m_hMainWindow, false, 0,0,10,10);
+	}
+	else
+	{
+		m_pCard->drawCard(m_hMainWindow, true, 11,4, 420, 10);
+	}
+
+	if(!spadepile.empty())
+	{
+		//m_pCard->drawCard(m_hMainWindow, false, 0,0,10,10);
+	}
+	else
+	{
+		m_pCard->drawCard(m_hMainWindow, true, 12,4, 502, 10);
+	}
+
+	//ITERATORS FOR THE PILES
+	
+	for (vector<vector<CCards>>::iterator iterVect = playingspace.begin(); iterVect !=playingspace.end(); iterVect++)
+	{
+
+		for (vector<CCards>::iterator iterCards = iterVect->begin(); iterCards !=iterVect->end(); iterCards++)
+		{
+
+			m_pCard->drawCard(m_hMainWindow, iterCards->IsFaceUp(), iterCards->GetValue()-1,iterCards->GetSuit(), 10+(82*distance(playingspace.begin(),iterVect)), 120+((distance(iterVect->begin(),iterCards))*20));
+		}
+
+	}
 
 }
 

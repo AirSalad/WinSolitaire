@@ -59,7 +59,7 @@ private:
 	vector<CCards> diamondpile;
 	vector<CCards> spadepile;
 	vector<CCards> clubpile;
-	vector<vector<CCards>> playingspace[7];
+	vector<vector<CCards>> playingspace;
 	int cardDraw;
 };
 #endif // __GAME_H__

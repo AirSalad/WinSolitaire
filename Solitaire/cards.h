@@ -46,6 +46,7 @@ public:
 	void SetSuit(m_eCardSuits);
 	int GetSuit();
 	void FlipCard();
+	bool IsFaceUp();
 	void setCardPos();
 	void drawCard(HWND _hWND, bool bCardFaceUp, int iCardValue, int iCardType,  int x, int y);
 
@@ -54,10 +55,10 @@ private:
 	//CCards& operator= (const CCards& _kr);
 
 	//void setCardPos();
-	int m_x;
-	int m_y;
-	int m_height;//100
-	int m_width;//72
+	//int m_x;
+	//int m_y;
+	//int m_height;//100
+	//int m_width;//72
 	int m_iCardValue;
 	m_eCardSuits m_eChosenSuit;
 	bool m_bFaceUp;
